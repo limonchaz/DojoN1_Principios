@@ -9,14 +9,18 @@ Presentación: [Principios de diseño](https://docs.google.com/a/dsindigo.com/pr
 
 
 ### Instrucciones ###
-1. Revisa la presentación
-2. Clona el código en la carpeta "kataCodeSmell"
-3. Leer los requerimientos para entender el problema planteado
-4. Sigue las reglas especificadas en los requerimientos
-5. Corrige la prueba que está fallando
-6. Utiliza TDD para eliminar los malos olores en el código
-7. Emplea el estándar de Indigo para hacer commit
+1. Revisa la presentación.
+2. Crea una carpeta con tu nombre y apellido (y apellido si es necesario para no repetir archivos) donde clones el código de la carpeta "kataCodeSmell".
+3. Leer los requerimientos que detallamos al final de estas instrucciones, para entender el problema planteado.
+4. Sigue las reglas especificadas en los requerimientos.
+5. Corrige la prueba que está fallando.
+6. Utiliza TDD para eliminar los malos olores en el código.
+7. Emplea el estándar de Indigo para hacer commit.
 8. Deja que el historial de git nos cuente como lo hiciste, organiza tus commits para hacer legibles tus pasos, técnicas, etc empleadas.
+9. En este ejercicio puedes aplicar más temas, técnicas, buenas prácticas, etc, de los que ya hemos revisado en el programa estos te harn ganar mas puntos, el límite lo pones tú.
+10. No olvides utilizar el estándar de códificación para java de Indigo.
+
+Nota. Si quieres emplear otras herramientas para pruebas, no dudes en hacerlo.
 
 ======================================
 Gilded Rose Requirements Specification
