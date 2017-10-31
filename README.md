@@ -3,7 +3,7 @@ Dojo #1 del programa Chanchi Ninja nivel "Novato"
 
 Skill técnico: Diseño. 
 
-### Principios introducidos:###
+### Principios introducidos: ###
 * Principio de responsabilidad única
 * Principio de la menor sorpresa posible
 
