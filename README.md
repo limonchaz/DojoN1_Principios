@@ -1,15 +1,19 @@
 # DojoN1_Principios
 Dojo #1 del programa Chanchi Ninja nivel "Novato" 
 
-Skill técnico: Diseño.  
+Skill técnico: Diseño. 
 
-Kata: [Code Smell](https://github.com/emilybache/GildedRose-Refactoring-Kata)
+### Principios introducidos:###
+* Principio de responsabilidad única
+* Principio de la menor sorpresa posible
 
-Presentación: [Principios de diseño](https://docs.google.com/a/dsindigo.com/presentation/d/1I4FvHsa8FXrNoqswoUk-6hduWaG5tT11aQG5gAFrqdg/edit?usp=sharing) 
+Este ejercicio se ha tomado de un amplio trabajo ya realilizado para trabajar la Kata: [Code Smell](https://github.com/emilybache/GildedRose-Refactoring-Kata)
+
+Presentación: [Dojo 1: Principios de diseño](https://docs.google.com/a/dsindigo.com/presentation/d/1I4FvHsa8FXrNoqswoUk-6hduWaG5tT11aQG5gAFrqdg/edit?usp=sharing) 
 
 
 ### Instrucciones ###
-1. Revisa la presentación.
+1. Revisa la presentación [Dojo 1: Principios de diseño](https://docs.google.com/a/dsindigo.com/presentation/d/1I4FvHsa8FXrNoqswoUk-6hduWaG5tT11aQG5gAFrqdg/edit?usp=sharing) .
 2. Crea una carpeta con tu nombre y apellido (y apellido si es necesario para no repetir archivos) donde clones el código de la carpeta "kataCodeSmell".
 3. Leer los requerimientos que detallamos al final de estas instrucciones, para entender el problema planteado.
 4. Sigue las reglas especificadas en los requerimientos.
