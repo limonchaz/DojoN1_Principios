@@ -1,4 +1,5 @@
 # DojoN1_Principios
+<<<<<<< HEAD
 Dojo #1 del programa Chanchi Ninja nivel "Novato" 
 
 Skill técnico: Diseño. 
@@ -64,3 +65,6 @@ for you).
 
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
 legendary item and as such its Quality is 80 and it never alters.
+=======
+Ejercicio de codigo apestoso
+>>>>>>> c4ca77d3e4d3afdafbf93f81e98caf5c1daf40a4
