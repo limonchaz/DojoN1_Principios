@@ -59,4 +59,10 @@ class GildedRose {
             }
         }
     }
+    
+    public Item decrementarSellInSulfuras(Item item) {
+        item.sellIn = 0;
+        return item;
+    }
+    
 }
