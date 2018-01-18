@@ -60,9 +60,25 @@ class GildedRose {
         }
     }
     
-    public Item decrementarSellInSulfuras(Item item) {
-        item.sellIn = 0;
+    public Item drecrementQualitySellInByOne(Item item) {
+        int decrementValue = 1;
+        
+        item.quality = item.quality - decrementValue;
+        item.sellIn = item.sellIn - decrementValue;
+        
         return item;
+    }
+    
+    public Item decrementarSellInSulfuras(Item item) {
+        Item it = new Item(item.name, item.sellIn, item.quality);
+        
+        if ("Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
+            item.sellIn = 0;
+            it = item;
+        } else {
+            it = null;
+        }
+        return it;
     }
     
 }
