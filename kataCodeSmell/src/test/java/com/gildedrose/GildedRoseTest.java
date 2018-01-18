@@ -44,15 +44,23 @@ public class GildedRoseTest {
     
     @Test
     public void decrementarItemSulfuras() {
-        GildedRose app = new GildedRose(this.items);
-        for (Item item : items) {
-            Item it = app.decrementarSellInSulfuras(item);
-            
-            if (it != null && "Sulfuras, Hand of Ragnaros".equalsIgnoreCase(it.name)) {
-                assertEquals(0, it.sellIn);
-            } else {
-                assertNull(it);
-            }
-        }
+        GildedRose app = new GildedRose(items);
+        
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 0) };
+        
+        Item item = app.decrementarSellInSulfuras(items[0]);
+        
+        assertEquals(0, item.sellIn);
+    }
+    
+    @Test
+    public void decrementarNoSulfuras() {
+        GildedRose app = new GildedRose(items);
+        
+        Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
+        
+        Item item = app.decrementarSellInSulfuras(items[0]);
+        
+        assertNull(item);
     }
 }
