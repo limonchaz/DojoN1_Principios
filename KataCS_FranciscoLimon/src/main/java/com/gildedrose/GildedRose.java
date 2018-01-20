@@ -66,7 +66,12 @@ class GildedRose {
         } else if ("Conjured".equalsIgnoreCase(item.name)) {
             item.quality = item.quality - 2;
         } else if ("Aged Brie".equalsIgnoreCase(item.name)) {
-            
+            if (item.sellIn >= 0) {
+                item.quality = item.quality + 1;
+            } else {
+                item.quality = item.quality + 2;
+            }
+            item.sellIn = item.sellIn - 1;
         } else if ("Backstage passes".equalsIgnoreCase(item.name)) {
             
         } else {
