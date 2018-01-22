@@ -33,7 +33,7 @@ class GildedRose {
     private void updateQuality(Item item) {
         if (item.quality > MIN_QUALITY && !"Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
             if ("Conjured".equalsIgnoreCase(item.name)) {
-                item.quality -= QUA_TWICE_DECREMENT;
+                conjured(item);
             } else if ("Aged Brie".equalsIgnoreCase(item.name)) {
                 agedBrie(item);
             } else if ("Backstage passes to a TAFKAL80ETC concert".equalsIgnoreCase(item.name)) {
@@ -43,6 +43,14 @@ class GildedRose {
             } else {
                 item.quality -= QUA_NORMAL_DECREMENT;
             }
+        }
+    }
+    
+    private void conjured(Item item) {
+        if (item.sellIn >= SELL_DAYS) {
+            item.quality -= QUA_TWICE_DECREMENT;
+        } else {
+            item.quality = item.quality - (QUA_TWICE_DECREMENT * 2);
         }
     }
     

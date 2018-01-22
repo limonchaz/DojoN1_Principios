@@ -9,7 +9,7 @@ public class GildedRoseTest {
     Item[] items = new Item[]{ new Item("Sulfuras, Hand of Ragnaros", 1, 1) };
 
     @Test
-    public void drecrementByOneBefore() {
+    public void testDecrementByOneBefore() {
         Item[] items = new Item[] { new Item("fixme", 10, 15) };
         
         GildedRose app = new GildedRose(items);
@@ -21,7 +21,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void drecrementTwice() {
+    public void testDecrementTwice() {
         Item[] items = new Item[] { new Item("fixme", -1, 15) };
         
         GildedRose app = new GildedRose(items);
@@ -33,7 +33,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void qualityNotNegative() {
+    public void testQualityNotNegative() {
         Item[] items = new Item[] { new Item("fixme", 1, 0) };
         
         GildedRose app = new GildedRose(items);
@@ -45,7 +45,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void agedBrieQuality() {
+    public void testAgedBrieQuality() {
         Item[] items = new Item[] {
                 new Item("Aged Brie", 2, 1),
                 new Item("Aged Brie", -3, 5)
@@ -60,7 +60,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void qualityNeverMoreThanFifty() {
+    public void testQualityNeverMoreThanFifty() {
         Item[] items = new Item[] { 
                 new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)
         };
@@ -73,7 +73,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void sulfurasNerverBeSoldOrDecrease() {
+    public void testSulfurasNerverBeSoldOrDecrease() {
         Item[] items = new Item[] { 
                 new Item("Sulfuras, Hand of Ragnaros", 0, 80),
                 new Item("Sulfuras, Hand of Ragnaros", -1, 80)
@@ -88,7 +88,7 @@ public class GildedRoseTest {
     }
     
     @Test
-    public void backstagePassesQuality() {
+    public void testBackstagePassesQuality() {
         Item[] items = new Item[] { 
                 new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30),
                 new Item("Backstage passes to a TAFKAL80ETC concert", 5, 6),
@@ -102,5 +102,22 @@ public class GildedRoseTest {
         assertEquals(32, items[0].quality);
         assertEquals(9, items[1].quality);
         assertEquals(0, items[2].quality);
+    }
+    
+    @Test
+    public void testConjured() {
+        Item[] items = new Item[] { 
+                new Item("Conjured", 5, 25),
+                new Item("Conjured", -1, 32)
+        };
+        
+        GildedRose app = new GildedRose(items);
+
+        app.updateItem();
+        
+        assertEquals(4, items[0].sellIn);
+        assertEquals(23, items[0].quality);
+        assertEquals(-2, items[1].sellIn);
+        assertEquals(28, items[1].quality);
     }
 }
