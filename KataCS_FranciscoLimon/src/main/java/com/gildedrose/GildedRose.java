@@ -7,6 +7,16 @@ class GildedRose {
         this.items = items;
     }
 
+    private static final Integer MAX_QUALITY = 50;
+    private static final Integer MIN_QUALITY = 0;
+    
+    private static final Integer QUA_NORMAL_DECREMENT = 1;
+    private static final Integer QUA_TWICE_DECREMENT = 2;
+    
+    private static final Integer SELL_IN_DECREMENT = 1;
+    
+    private static final Integer SELL_DATE = 0;
+    
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
             drecrementQualitySellInByOne(items[i]);
@@ -62,34 +72,34 @@ class GildedRose {
     }
     
     public Item drecrementQualitySellInByOne(Item item) {
-        if (item.quality > 0) {
+        if (item.quality > MIN_QUALITY) {
             if ("Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
-                item.sellIn = item.sellIn - 1;
+                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
             } else if ("Conjured".equalsIgnoreCase(item.name)) {
-                item.quality = item.quality - 2;
+                item.quality = item.quality - QUA_TWICE_DECREMENT;
             } else if ("Aged Brie".equalsIgnoreCase(item.name)) {
-                if (item.sellIn >= 0) {
+                if (item.sellIn >= SELL_DATE) {
                     item.quality = item.quality + 1;
                 } else {
                     item.quality = item.quality + 2;
                 }
-                item.sellIn = item.sellIn - 1;
+                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
             } else if ("Backstage passes to a TAFKAL80ETC concert".equalsIgnoreCase(item.name)) {
-                if (item.sellIn <= 0) {
-                    item.quality = 0;
+                if (item.sellIn <= SELL_DATE) {
+                    item.quality = MIN_QUALITY;
                 } else if (item.quality >= 49 ) {
-                    item.quality = 50;
-                } else if (item.sellIn < 6 && item.quality < 50) {
+                    item.quality = MAX_QUALITY;
+                } else if (item.sellIn < 6 && item.quality < MAX_QUALITY) {
                     item.quality = item.quality + 3;
-                } else if (item.sellIn < 11 && item.quality < 50) {
+                } else if (item.sellIn < 11 && item.quality < MAX_QUALITY) {
                     item.quality = item.quality + 2;
                 }
-            } else if (item.sellIn < 0) {
-                item.sellIn = item.sellIn - 1;
-                item.quality = item.quality - 2;
+            } else if (item.sellIn < SELL_DATE) {
+                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
+                item.quality = item.quality - QUA_TWICE_DECREMENT;
             } else {
-                item.sellIn = item.sellIn - 1;
-                item.quality = item.quality - 1;
+                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
+                item.quality = item.quality - QUA_NORMAL_DECREMENT;
             }
         }
         
