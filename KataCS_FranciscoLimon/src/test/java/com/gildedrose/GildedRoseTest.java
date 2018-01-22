@@ -1,7 +1,6 @@
 package com.gildedrose;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
@@ -103,27 +102,5 @@ public class GildedRoseTest {
         assertEquals(32, items[0].quality);
         assertEquals(9, items[1].quality);
         assertEquals(0, items[2].quality);
-    }
-    
-    @Test
-    public void decrementarItemSulfuras() {
-        GildedRose app = new GildedRose(items);
-        
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 0) };
-        
-        Item item = app.decrementarSellInSulfuras(items[0]);
-        
-        assertEquals(0, item.sellIn);
-    }
-    
-    @Test
-    public void decrementarNoSulfuras() {
-        GildedRose app = new GildedRose(items);
-        
-        Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
-        
-        Item item = app.decrementarSellInSulfuras(items[0]);
-        
-        assertNull(item);
     }
 }
