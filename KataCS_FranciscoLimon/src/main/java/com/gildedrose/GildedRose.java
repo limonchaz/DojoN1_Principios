@@ -15,11 +15,12 @@ class GildedRose {
     
     private static final Integer SELL_IN_DECREMENT = 1;
     
-    private static final Integer SELL_DATE = 0;
+    private static final Integer SELL_DAYS = 0;
     
-    public void updateQuality() {
+    public void updateItem() {
         for (int i = 0; i < items.length; i++) {
-            drecrementQualitySellInByOne(items[i]);
+            updateQuality(items[i]);
+            updateSellIn(items[i]);
 //            if (!"Aged Brie".equalsIgnoreCase(items[i].name)
 //                    && !"Backstage passes to a TAFKAL80ETC concert".equalsIgnoreCase(items[i].name)) {
 //                if (items[i].quality > 0) {
@@ -71,39 +72,46 @@ class GildedRose {
         }
     }
     
-    public Item drecrementQualitySellInByOne(Item item) {
-        if (item.quality > MIN_QUALITY) {
-            if ("Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
-                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
-            } else if ("Conjured".equalsIgnoreCase(item.name)) {
-                item.quality = item.quality - QUA_TWICE_DECREMENT;
+    private void updateSellIn(Item item) {
+        if (!"Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
+            item.sellIn -= SELL_IN_DECREMENT;
+        }
+    }
+    
+    private void updateQuality(Item item) {
+        if (item.quality > MIN_QUALITY && !"Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
+            if ("Conjured".equalsIgnoreCase(item.name)) {
+                item.quality -= QUA_TWICE_DECREMENT;
             } else if ("Aged Brie".equalsIgnoreCase(item.name)) {
-                if (item.sellIn >= SELL_DATE) {
-                    item.quality = item.quality + 1;
-                } else {
-                    item.quality = item.quality + 2;
-                }
-                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
+                agedBrie(item);
             } else if ("Backstage passes to a TAFKAL80ETC concert".equalsIgnoreCase(item.name)) {
-                if (item.sellIn <= SELL_DATE) {
-                    item.quality = MIN_QUALITY;
-                } else if (item.quality >= 49 ) {
-                    item.quality = MAX_QUALITY;
-                } else if (item.sellIn < 6 && item.quality < MAX_QUALITY) {
-                    item.quality = item.quality + 3;
-                } else if (item.sellIn < 11 && item.quality < MAX_QUALITY) {
-                    item.quality = item.quality + 2;
-                }
-            } else if (item.sellIn < SELL_DATE) {
-                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
-                item.quality = item.quality - QUA_TWICE_DECREMENT;
+                backStage(item);
+            } else if (item.sellIn < SELL_DAYS) {
+                item.quality -= QUA_TWICE_DECREMENT;
             } else {
-                item.sellIn = item.sellIn - SELL_IN_DECREMENT;
-                item.quality = item.quality - QUA_NORMAL_DECREMENT;
+                item.quality -= QUA_NORMAL_DECREMENT;
             }
         }
-        
-        return item;
+    }
+    
+    private void agedBrie(Item item) {
+        if (item.sellIn >= SELL_DAYS) {
+            item.quality += 1;
+        } else {
+            item.quality += 2;
+        }
+    }
+    
+    private void backStage(Item item) {
+        if (item.sellIn <= SELL_DAYS) {
+            item.quality = MIN_QUALITY;
+        } else if (item.quality >= (MAX_QUALITY - 1)) {
+            item.quality = MAX_QUALITY;
+        } else if (item.sellIn < 6 && item.quality < MAX_QUALITY) {
+            item.quality += 3;
+        } else if (item.sellIn < 11 && item.quality < MAX_QUALITY) {
+            item.quality += 2;
+        }
     }
     
     public Item decrementarSellInSulfuras(Item item) {
