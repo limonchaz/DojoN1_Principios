@@ -107,8 +107,8 @@ public class GildedRoseTest {
     @Test
     public void testConjured() {
         Item[] items = new Item[] { 
-                new Item("Conjured", 5, 25),
-                new Item("Conjured", -1, 32)
+                new Item("Conjured Mana Cake", 5, 25),
+                new Item("Conjured Mana Cake", -1, 32)
         };
         
         GildedRose app = new GildedRose(items);

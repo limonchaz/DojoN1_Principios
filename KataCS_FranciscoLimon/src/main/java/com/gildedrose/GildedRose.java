@@ -32,7 +32,7 @@ class GildedRose {
     
     private void updateQuality(Item item) {
         if (item.quality > MIN_QUALITY && !"Sulfuras, Hand of Ragnaros".equalsIgnoreCase(item.name)) {
-            if ("Conjured".equalsIgnoreCase(item.name)) {
+            if ("Conjured Mana Cake".equalsIgnoreCase(item.name)) {
                 conjured(item);
             } else if ("Aged Brie".equalsIgnoreCase(item.name)) {
                 agedBrie(item);
